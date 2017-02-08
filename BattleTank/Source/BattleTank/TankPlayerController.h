@@ -26,4 +26,8 @@ private:
 	// Start the tank moving the barrel so that a shot would hit where
 	// the crosshair intersects the world
 	void AimTowardCrosshair();
+
+	// Ray-casting toward crosshair.
+	// Returns true if it hits anything.
+	bool GetSightRayHitLocation(FVector& OutHitVector) const;
 };
