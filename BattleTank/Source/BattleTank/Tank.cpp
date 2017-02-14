@@ -19,17 +19,13 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
-
 
 // Called to bind functionality to input
 void ATank::SetupPlayerInputComponent(class UInputComponent* InputComp)
 {
 	Super::SetupPlayerInputComponent(InputComp);
-
 }
-
 
 void ATank::AimAt(FVector HitLocation)
 {
@@ -44,4 +40,9 @@ void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
 void ATank::SetTurretReference(UTankTurret* TurretToSet)
 {
 	TankAimingComponent->SetTurretReference(TurretToSet);
+}
+
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("FIRE!"));
 }
