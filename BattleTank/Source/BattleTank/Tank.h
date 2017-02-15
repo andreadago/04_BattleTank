@@ -46,7 +46,7 @@ private:
 	float LaunchSpeed = 4000;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	TSubclassOf<AProjectile> Projectile = nullptr;
+	TSubclassOf<AProjectile> ProjectileBlueprint = nullptr;
 
 	//Barrel reference to spawn projectiles
 	UTankBarrel* Barrel = nullptr;
