@@ -7,16 +7,6 @@
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	ATank* ControlledTank = GetControlledTank();
-
-	if (!ControlledTank)
-	{
-		UE_LOG(LogTemp, Error, TEXT("Cannot find Controlled Tank on %s"), *GetOwner()->GetName());
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Possessing %s tank"), *ControlledTank->GetName());
-	}
 }
 
 void ATankPlayerController::Tick(float DeltaSeconds)
