@@ -15,16 +15,12 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+protected:
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
+
 private:
-
-	UPROPERTY(EditDefaultsOnly)
-	float CrossHairXLocation = 0.5f;
-
-	UPROPERTY(EditDefaultsOnly)
-	float CrossHairYLocation = 0.33333f;
-
-	UPROPERTY(EditDefaultsOnly)
-	float LineTraceRange = 1000000; //10 km
 
 	virtual void BeginPlay() override;
 
@@ -34,8 +30,6 @@ private:
 	// the crosshair intersects the world
 	void AimTowardCrosshair();
 
-	ATank* GetControlledTank() const;
-
 	// Ray-casting toward crosshair.
 	// Returns true if it hits anything.
 	bool GetSightRayHitLocation(FVector& OutHitVector) const;
@@ -44,4 +38,12 @@ private:
 	
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 
+	UPROPERTY(EditDefaultsOnly)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditDefaultsOnly)
+	float CrossHairYLocation = 0.33333f;
+
+	UPROPERTY(EditDefaultsOnly)
+	float LineTraceRange = 1000000; //10 km
 };
