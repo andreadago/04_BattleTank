@@ -58,6 +58,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
 
+	bool IsBarrelMoving();
+
+	FVector CurrentAimDirection;
 
 	double LastFireTime = 0;
 
