@@ -52,4 +52,18 @@ void AProjectile::OnHit(AActor* SelfActor, AActor* OtherActor, FVector NormalImp
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
 	ExplosionForce->FireImpulse();
+
+	//Destroy the Projectile's CollisionMesh 
+	SetRootComponent(ImpactBlast);
+	CollisionMesh->DestroyComponent();
+
+	FTimerHandle TimerHandle;
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle, this, &AProjectile::OnTimeExpired, DestroyDelay, false);
+
+}
+
+void AProjectile::OnTimeExpired()
+{
+	//Finally destroy the Projectile instance
+	Destroy();
 }
